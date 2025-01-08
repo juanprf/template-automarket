@@ -11,7 +11,7 @@ const FavoritesPage = () => {
     setFavorites(savedFavorites);
   }, []);
 
-  const handleRemoveFavorite = (id: number) => {
+  const handleRemoveFavorite = (id: string) => {
     vehicleService.removeFavorite(id);
     setFavorites(vehicleService.getFavorites());
   };
@@ -25,7 +25,7 @@ const FavoritesPage = () => {
             <VehicleCard
               key={vehicle.id}
               vehicle={vehicle}
-              onRemove={() => handleRemoveFavorite(Number(vehicle.id))}
+              onRemove={() => handleRemoveFavorite((vehicle.id))}
             />
           ))}
         </div>
